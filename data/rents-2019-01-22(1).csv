@@ -1,0 +1,8 @@
+apartment_id,zip_code,apartment_type,apartment_size,rent,deleted
+7ee8e00e-8cf2-4bc1-8cfc-8d45ed971557,10179,garden,71,700,false
+7fc7acb3-e29a-4a10-bf78-f68ab761e900,10315,garden,119,800,false
+2be5e904-fa32-42e2-8b1a-3a4103f6db62,10319,basement,114,798,true
+4be1dd49-5a30-4b66-b148-e9f0fd06afd7,10318,loft,145,800,false
+fa74703c-50cc-4d12-b88f-bec62ee20c1d,10315,studio,103,824,true
+178a43d6-8e4a-4e41-983f-994e36d90a7d,10315,loft,98,950,false
+4e8372bd-1048-47b8-be02-1a0a424af719,10319,penthouse,145,870,false
