@@ -7,9 +7,9 @@ Table of Contents
 -----------------
 
 - [Features](#features)
-- [Prerequisite](#prerequisite)
-- [Running CSV Dump](#running-csv-dump)
+- [Prerequisites](#prerequisites)
 - [One step deployment docker](#one-step-deployment-docker)
+- [Running CSV Dump](#running-csv-dump)
 - [Getting Started on host machine without docker](#getting-started-on-host-machine-without-docker)
 - [Project Structure](#project-structure)
 
@@ -17,6 +17,7 @@ Table of Contents
 Features
 --------
 - **Multi threading** using PM2 Library
+- **One Step Deplyment** using docker
 - **JOI schema validation** request schema validation using JOI
 - **Logging** using Winston Library
 - **Testing** using mocha and assert
@@ -31,15 +32,6 @@ Prerequisites
     * Install [Docker](https://docs.docker.com)
     * Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-Running CSV Dump
--------------
-
-**Note**: The csv_dump will handle insertion and deltas. Please create two databases named `rent_db` and `rent_db_test`.Please refere to the commented section in `init_db.sql` for creating the databases. Execute `init_server.sql` in both the databases before going through the steps below.
-
-To run csv_dump execute the following command `node csv_dump.js` after the node project setup is complete.
-There are two options for dumping csv in postgres. A prompt will ask if you want to the immediately. 
-1. If *Y* or *y* is selected the dump will be initiated based on the csv file set in `config.json` of the project.
-2. Any other option will start a cron job on a weekly basis. The cron will run every Sunday at 00:00
 
 One step deployment docker
 ---------------
@@ -53,12 +45,13 @@ https://github.com/navroze/apartment-rent-api.git
 cd apartment-rent-api
 
 # Deploy on machine
-docker-compose up -t
+docker-compose up -d
 
 # Populate postgres database
 docker ps
 docker exec -it <node-conatiner> bash
-node csv_parser.js
+node csv_dump.js
+Terminate the job
 
 # Go to
 localhost:3000/graphql
@@ -75,9 +68,20 @@ localhost:3000/graphql
 }
 ```
 
+Running CSV Dump
+-------------
+
+**Note**: The csv_dump will handle insertion and deltas. Please create two databases named `rent_db` and `rent_db_test`.Please refere to the commented section in `init.sql` for creating the tables and indexes. Execute `init.sql` in both the databases before going through the steps below. Change the `user`, `password` and `host` in `config.json`.
+
+To run csv_dump execute the following command `node csv_dump.js` after the node project setup is complete.
+There are two options for dumping csv in postgres. A prompt will ask if you want to the immediately. 
+1. If *Y* or *y* is selected the dump will be initiated based on the csv file set in `config.json` of the project.
+2. Any other option will start a cron job on a weekly basis. The cron will run every Sunday at 00:00
+
+
 Getting Started on host machine without docker
 ---------------
-**Note**: Please create two databases named `rent_db` and `rent_db_test`.Please refer to the commented section in `init.sql` for creating the databases. Execute `init.sql` in both the databases before going through the steps below.Set the host, database user and password in the `config.json` file of the project.
+**Note**: Please create two databases named `rent_db` and `rent_db_test`.Please refer to the commented section in `init.sql` for creating the databases. Execute `init.sql` in both the databases before going through the steps below.Set the host, database user and password in the `config.json` file of the project. Perform a CSV dump before starting the web application.
 
 ```bash
 # Get the latest snapshot
