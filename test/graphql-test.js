@@ -29,6 +29,7 @@ describe('Graphql', () => {
         });
     } catch (error) {
       console.log(error);
+      assert(false);
     }
   });
 
@@ -56,6 +57,7 @@ describe('Graphql', () => {
         });
     } catch (error) {
       console.log(error);
+      assert(false);
     }
   });
 
@@ -83,6 +85,7 @@ describe('Graphql', () => {
         });
     } catch (error) {
       console.log(error);
+      assert(false);
     }
   });
 });

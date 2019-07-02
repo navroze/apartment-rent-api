@@ -1,9 +1,9 @@
 {
     "databaseCreds": 
     {
-        "host": "localhost",
+        "host": "postgres",
         "user": "postgres",
-        "password": "pass@123",
+        "password": "pass123",
         "database": "rent_db",
         "test_database": "rent_db_test",
         "port": "5432",
@@ -15,7 +15,7 @@
         "weeklyCron": "0 0 * * 0",
         "oneMinuteCron": "* * * * *"
     },
-    "csvFile": "rents-2019-01-22(1)",
+    "csvFile": "rents-2019-01-15(1)",
     "serverConfig":
     {
         "serverIp": "0.0.0.0",

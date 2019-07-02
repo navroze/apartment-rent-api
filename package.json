@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2 start app.js -i 0",
+    "dev": "node app.js",
     "test": "mocha --recursive -R min",
     "lint": "eslint **/*.js"
   },

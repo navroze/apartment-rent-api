@@ -16,15 +16,15 @@ describe('CSV Sanity Logic', async () => {
         if (error) {
           validationFailed = true;
         }
-      }).on('end', () => {
+      }).on('end', async () => {
         if (validationFailed) assert(true);
         else assert(false);
-      }).on('error', (err) => {
+      }).on('error', async (err) => {
         console.log(err);
       });
   });
 
-  it('Check sanity for csv fields', () => {
+  it('Check sanity for csv fields', (done) => {
     const csvPath = path.join(__dirname, `../data/${csvFile}.csv`);
     let validationFailed = false;
     csv.parseFile(csvPath, { headers: true })
@@ -37,16 +37,18 @@ describe('CSV Sanity Logic', async () => {
       }).on('end', () => {
         if (validationFailed) assert(false);
         else assert(true);
+        done();
       }).on('error', (err) => {
         console.log('Error in csv sanity validation ', err);
         assert(false);
+        done();
       });
   });
 
   it('Check if all apartment-id are unique', (done) => {
     const apartmentIds = {};
     const csvPath = path.join(__dirname, `../data/${csvFile}.csv`);
-    csv.fromPath(csvPath, { headers: true })
+    csv.parseFile(csvPath, { headers: true })
       .on('data', (record) => {
         const { apartment_id } = record;
         if (apartment_id in apartmentIds) {
@@ -57,6 +59,7 @@ describe('CSV Sanity Logic', async () => {
       .on('error', (err) => {
         console.log('Found error in reading csv file', err);
         assert(false);
+        done();
       })
       .on('end', () => {
         assert(true);

@@ -25,7 +25,7 @@ const resolvers = {
 app.use('/graphql', graphqlHttp({
   schema: buildSchema(graphqlBuildString),
   rootValue: resolvers,
-  graphiql: false
+  graphiql: true
 }));
 
 
@@ -36,6 +36,12 @@ app.set('host', config.serverConfig.serverIp);
 app.set('port', config.serverConfig.serverPort);
 app.use(logger('dev'));
 
+/**
+ * Set root route.
+ */
+app.get('/', (req, res) => {
+  res.send('Head over to localhost:3000/graphql for using the service');
+});
 
 /**
  * Start express server
