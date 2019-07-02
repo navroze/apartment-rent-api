@@ -71,17 +71,17 @@ localhost:3000/graphql
 Running CSV Dump
 -------------
 
-**Note**: The csv_dump will handle insertion and deltas. Please create two databases named `rent_db` and `rent_db_test`.Please refere to the commented section in `init.sql` for creating the tables and indexes. Execute `init.sql` in both the databases before going through the steps below. Change the `user`, `password` and `host` in `config.json`.
+**Note**: The csv_dump will handle insertion and deltas. Please create two databases named `rent_db` and `rent_db_test`.Please refere to `init.sql` for creating the tables and indexes. Change the `user`, `password` and `host` in `config.json`.
 
 To run csv_dump execute the following command `node csv_dump.js` after the node project setup is complete.
-There are two options for dumping csv in postgres. A prompt will ask if you want to the immediately. 
+There are two options for dumping csv in postgres. A prompt will ask if you want to do the dump immediately. 
 1. If *Y* or *y* is selected the dump will be initiated based on the csv file set in `config.json` of the project.
 2. Any other option will start a cron job on a weekly basis. The cron will run every Sunday at 00:00
 
 
 Getting Started on host machine without docker
 ---------------
-**Note**: Please create two databases named `rent_db` and `rent_db_test`.Please refer to the commented section in `init.sql` for creating the databases. Execute `init.sql` in both the databases before going through the steps below.Set the host, database user and password in the `config.json` file of the project. Perform a CSV dump before starting the web application.
+**Note**: Please create two databases named `rent_db` and `rent_db_test`. Execute `init.sql` in both the databases before going through the steps below.Set the host, database user and password in the `config.json` file of the project. Perform a CSV dump before starting the web application.
 
 ```bash
 # Get the latest snapshot
