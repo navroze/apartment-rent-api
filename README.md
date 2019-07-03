@@ -130,6 +130,6 @@ Project Structure
 | ./app.js                      | Main file for starting web application.           |
 | ./csv_dump.js                          | Dump csv file set in config.json or schedule to run the job                                     |
 | **.**/.gitignore                         | Folder and files ignored by git.                             |
-| ./.dockerignore                             | The main application file.                                   |
-| ./Dockerfile                       | NPM dependencies.                                            |
-| docker-compose.yml                  | Python dependencies for machine learning. |
+| ./.dockerignore                             | Files ignored during docker build.                                   |
+| ./Dockerfile                       | Build docker.                                            |
+| docker-compose.yml                  | One-step deployment for docker. |
