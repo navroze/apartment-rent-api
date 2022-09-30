@@ -15,7 +15,7 @@
     "lint": "eslint **/*.js"
   },
   "dependencies": {
-    "@hapi/joi": "^15.0.3",
+    "@hapi/joi": "^15.1.1",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "dotenv": "^6.0.0",
